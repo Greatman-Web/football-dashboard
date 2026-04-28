@@ -3,169 +3,58 @@
 <head>
     <title>Football Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: linear-gradient(135deg, #0f172a, #1e1e2f);
-            color: white;
-            text-align: center;
-        }
-
-        /* HEADER */
-        .header {
-            padding: 40px 20px 10px;
-        }
-
-        .header h1 {
-            font-size: 38px;
-            margin: 0;
-        }
-
-        .header p {
-            color: #94a3b8;
-            margin-top: 8px;
-        }
-
-        /* SEARCH */
-        .search-box {
-            margin-top: 25px;
-            position: relative;
-        }
-
-        input {
-            padding: 12px;
-            width: 320px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .search-btn {
-            padding: 12px 18px;
-            border: none;
-            background: #2563eb;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-left: 5px;
-        }
-
-        .search-btn:hover {
-            background: #1d4ed8;
-        }
-
-        /* SUGGESTIONS */
-        #suggestions {
-            background: #1e293b;
-            width: 320px;
-            margin: 10px auto 0;
-            text-align: left;
-            display: none;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        #suggestions div {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        #suggestions div:hover {
-            background: #2563eb;
-        }
-
-        /* STATS */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 12px;
-            width: 160px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.4);
-            transition: 0.3s;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-box h3 {
-            margin: 0;
-            font-size: 28px;
-            color: #38bdf8;
-        }
-
-        .stat-box p {
-            margin: 5px 0 0;
-            color: #94a3b8;
-        }
-
-        /* FOOTER */
-        .footer {
-            margin-top: 60px;
-            color: #64748b;
-            font-size: 12px;
-        }
     </style>
 </head>
 
 <body>
 
-<div class="header">
-    <h1>⚽ Football Analytics Dashboard</h1>
-    <p>Search teams, explore matches, and analyze performance</p>
-</div>
-
-<!-- SEARCH -->
-<form action="/search" method="GET" class="search-box">
-
-    <input type="text"
-           name="team"
-           id="searchInput"
-           placeholder="Search team (e.g Arsenal)"
-           onkeyup="showSuggestions()"
-           required>
-
-    <button type="submit" class="search-btn">Search</button>
-
-</form>
-
-<!-- SUGGESTIONS -->
-<div id="suggestions"></div>
-
-<!-- STATS -->
-<div class="stats">
-
-    <div class="stat-box">
-        <h3>20+</h3>
-        <p>Teams</p>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>⚽ Football Analytics Dashboard</h1>
+        <p>Search teams, explore matches, and analyze performance</p>
     </div>
 
-    <div class="stat-box">
-        <h3>2500+</h3>
-        <p>Matches</p>
+    <!-- SEARCH -->
+    <form action="/search" method="GET" class="search-box">
+
+        <input type="text"
+               name="team"
+               id="searchInput"
+               placeholder="Search team (e.g Arsenal)"
+               onkeyup="showSuggestions()"
+               required>
+
+        <button type="submit" class="search-btn">Search</button>
+
+    </form>
+
+    <!-- SUGGESTIONS -->
+    <div id="suggestions"></div>
+
+    <!-- STATS -->
+    <div class="stats">
+
+        <div class="stat-box">
+            <h3>20+</h3>
+            <p>Teams</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>2500+</h3>
+            <p>Matches</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>Live</h3>
+            <p>Search System</p>
+        </div>
+
     </div>
 
-    <div class="stat-box">
-        <h3>Live</h3>
-        <p>Search System</p>
-    </div>
-
-</div>
-
-<div class="footer">
-    Built with Flask • SQLAlchemy • Open Data
-</div>
+    <!-- FOOTER -->
+   <div class="footer">
+    ⚽ Football Analytics Dashboard • Built with Flask & Open Data • © 2026
+   </div>
 
 </body>
 

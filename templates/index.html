@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Football Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            background: #1e1e2f;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .search-box {
+            margin-top: 30px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .search-btn {
+            padding: 10px 15px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: #2c2c3e;
+            padding: 20px;
+            border-radius: 10px;
+            width: 150px;
+        }
+
+        #suggestions {
+            background: #2c2c3e;
+            width: 300px;
+            margin: auto;
+            text-align: left;
+            display: none;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        #suggestions div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #suggestions div:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>⚽ Football Dashboard Working</h1>
+
+<!-- SEARCH -->
+<form action="/search" method="GET" class="search-box">
+
+    <input type="text"
+           name="team"
+           id="searchInput"
+           placeholder="Search team..."
+           onkeyup="showSuggestions()"
+           required>
+
+    <button type="submit" class="search-btn">Search</button>
+
+</form>
+
+<!-- SUGGESTIONS BOX -->
+<div id="suggestions"></div>
+
+<!-- STATS -->
+<div class="stats">
+
+    <div class="stat-box">
+        <h3>20+</h3>
+        <p>Teams</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>5000+</h3>
+        <p>Matches</p>
+    </div>
+
+</div>
+
+</body>
+
+<script>
+let teams = [];
+
+// FIXED: parse JSON properly
+fetch('/teams')
+    .then(res => res.json())
+    .then(data => teams = data);
+
+function showSuggestions() {
+
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let box = document.getElementById("suggestions");
+
+    box.innerHTML = "";
+
+    if (input === "") {
+        box.style.display = "none";
+        return;
+    }
+
+    let filtered = teams.filter(t => t.toLowerCase().includes(input));
+
+    filtered.forEach(team => {
+        box.innerHTML += `<div onclick="selectTeam('${team}')">${team}</div>`;
+    });
+
+    box.style.display = "block";
+}
+
+function selectTeam(name) {
+    document.getElementById("searchInput").value = name;
+    document.getElementById("suggestions").style.display = "none";
+}
+</script>
+
+</html>

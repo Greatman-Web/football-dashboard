@@ -1,6 +1,4 @@
-/* =======================
-   GLOBAL STYLES
-======================= */
+/* GENERAL STYLES*/
 
 body {
     font-family: Arial, sans-serif;
@@ -9,9 +7,7 @@ body {
     margin: 0;
 }
 
-/* =======================
-   HEADER / DASHBOARD
-======================= */
+/*HEADER / DASHBOARD*/
 
 .header {
     padding: 40px 20px 10px;
@@ -33,9 +29,7 @@ body {
     border-bottom: 1px solid #444;
 }
 
-/* =======================
-   NAVIGATION
-======================= */
+/*NAVIGATION*/
 
 .top-nav {
     margin-bottom: 15px;
@@ -56,9 +50,7 @@ body {
     background: #1d4ed8;
 }
 
-/* =======================
-   SEARCH BAR
-======================= */
+/*SEARCH BAR*/
 
 .search-box {
     margin-top: 25px;
@@ -91,9 +83,7 @@ select {
     background: #1d4ed8;
 }
 
-/* =======================
-   SUGGESTIONS
-======================= */
+/*SUGGESTIONS*/
 
 #suggestions,
 .suggestions {
@@ -118,9 +108,7 @@ select {
     background: #2563eb;
 }
 
-/* =======================
-   STATS SECTION
-======================= */
+/*STATS SECTION*/
 
 .stats {
     display: flex;
@@ -155,9 +143,7 @@ select {
     color: #94a3b8;
 }
 
-/* =======================
-   MATCH CARDS
-======================= */
+/*MATCH CARDS */
 
 .cards {
     display: grid;
@@ -192,9 +178,7 @@ select {
     color: #aaa;
 }
 
-/* =======================
-   MATCH RESULTS
-======================= */
+/*MATCH RESULTS */
 
 .result.win {
     color: #4ade80;
@@ -208,9 +192,7 @@ select {
     color: #facc15;
 }
 
-/* =======================
-   FOOTER
-======================= */
+/*FOOTER */
 
 .footer {
     margin-top: 60px;
